@@ -9,7 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
     <title>Servidor Web Local com Node.js no seu Android</title>
-    <style>
+    <style>   
         body {
             font-family: "Roboto", serif;
             line-height: 1.6;
@@ -20,32 +20,15 @@
         }
         header {
             background: #333;
-            color: #fff;
-            padding: 10px 0;
+            color: #fff;            
             text-align: center;
         }
 
-        header.corrigir {
+        .header {
             display: flex;
-            flex: row nowrap;
-        }
-
-        div.item {
-            flex-basis: 250px;
-            flex-shrink: 1;
-            flex-grow: 1;
-        }
-
-        div#flex1 {
-            flex-shrink: 0;
-        }
-
-        div#flex2 {
-            flex-shrink: 1;
-        }
-
-        div#flex3 {
-            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 0;
         }
 
         .container {
@@ -57,11 +40,15 @@
         }
 
         img {
-            width: 30%;
+            width: 7%;
+            margin: 10px;
+            vertical-align: middle;
+            float: inline-start;
         }
 
         h1 {
             color: white;
+            font-size: 1.8em;
         } 
         
         h2 {
@@ -94,13 +81,51 @@
             background: #333;
             color: #fff;
         }
+
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            img {
+                width: 15%;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .container {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            img {
+                width: 20%;
+            }
+            h1 {
+                font-size: 1.3em;
+            }
+            .container {
+                padding: 10px;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            pre {
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
-    <header class="corrigir">
-        <div class="item" id="flex1"><img src="img/android/android-chrome-192x192.png" alt="android"></div>        
-        <div class="item" id="flex2"><h1>Transforme seu Android em um Servidor Web Local com Node.js</h1></div>
-        <div class="item" id="flex3"><img src="img/nodejs/android-chrome-192x192.png" alt="nodejs"></div>
+    <header class="header">
+        <img src="img/android/android-chrome-192x192.png" alt="android">
+        <h1>Transforme seu Android em um Servidor Web Local com Node.js</h1>
+        <img src="img/nodejs/android-chrome-192x192.png" alt="nodejs">  
     </header>
     <div class="container">
         <h2>Introdução</h2>
@@ -168,7 +193,7 @@ app.listen(port, () => {
         <pre><code>http://SEU_IP:3000</code></pre>
     </div>
     <footer>
-        <p>&copy; 2023 - Transforme seu Android em um Servidor Web Local</p>
+        <p>&copy; 2025 - Transforme seu Android em um Servidor Web Local</p>
     </footer>
 </body>
 </html>
