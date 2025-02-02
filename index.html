@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+    <title>Servidor Web Local com Node.js no Android</title>
+    <style>
+        body {
+            font-family: "Roboto", serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header.corrigir {
+            display: flex;
+            flex: row nowrap;
+        }
+
+        div.item {
+            flex-basis: 250px;
+            flex-shrink: 1;
+            flex-grow: 1;
+        }
+
+        div#flex1 {
+            flex-shrink: 0;
+        }
+
+        div#flex2 {
+            flex-shrink: 1;
+        }
+
+        div#flex3 {
+            flex-shrink: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 30%;
+        }
+
+        h1 {
+            color: white;
+        } 
+        
+        h2 {
+            font-size: 1.6em;
+            color: #333;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="corrigir">
+        <div class="item" id="flex1"><img src="img/android/android-chrome-192x192.png" alt="android"></div>        
+        <div class="item" id="flex2"><h1>Transforme seu Android em um Servidor Web Local com Node.js</h1></div>
+        <div class="item" id="flex3"><img src="img/nodejs/android-chrome-192x192.png" alt="nodejs"></div>
+    </header>
+    <div class="container">
+        <h2>Introdução</h2>
+        <p>Vamos transformar seu celular Android em um mini servidor web local com Node.js. Isso pode ser útil para hospedar sites, rodar serviços locais ou até testar aplicações. Existem várias abordagens, dependendo do que você precisa hospedar. Aqui estão os passos:</p>
+
+        <h2>Passo 1: Instalar o Termux</h2>
+        <p>O Termux é um emulador de terminal para Android que permite rodar comandos de Linux.</p>
+        <p>Baixe e instale o Termux pela <a href="https://f-droid.org/" target="_blank">F-Droid</a> (recomendado) ou <a href="https://play.google.com/store" target="_blank">Google Play Store</a>.</p>
+
+        <h2>Passo 2: Atualizar os pacotes</h2>
+        <p>Abra o Termux e rode:</p>
+        <pre><code>pkg update && pkg upgrade -y</code></pre>
+
+        <h2>Passo 3: Instalar o Servidor Node.js</h2>
+        <p>Digite o comando para instalar Node.js no Termux:</p>
+        <pre><code>pkg install nodejs -y</code></pre>
+
+        <h2>Passo 4: Criar uma pasta para o projeto</h2>
+        <p>Navegue até o diretório onde deseja armazenar os arquivos e crie a pasta do projeto:</p>
+        <pre><code>mkdir "meu_site" && cd "meu_site"</code></pre>
+
+        <h2>Passo 5: Criar um servidor Node.js</h2>
+        <p>Crie um arquivo chamado <code>server.js</code>:</p>
+        <pre><code>nano server.js</code></pre>
+
+        <h2>Passo 6: Copie e cole o script no arquivo server.js</h2>
+        <p>Cole este código básico para servir arquivos estáticos:</p>
+        <pre><code>const express = require('express');
+const app = express();
+const port = 3000; // Pode alterar se necessário
+
+// Define a pasta onde estão os arquivos HTML, CSS e JS
+app.use(express.static('public'));
+
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
+});</code></pre>
+        <p>Salve e saia do nano (CTRL + X, Y, Enter).</p>
+
+        <h2>Passo 7: Instalar o Express.js</h2>
+        <p>O Express.js é necessário para servir páginas web. Instale-o via npm:</p>
+        <pre><code>npm init -y</code></pre>
+        <pre><code>npm install express</code></pre>
+
+        <h2>Passo 8: Criar a pasta para os arquivos da página</h2>
+        <p>Agora, crie a pasta <code>public</code> onde ficarão os arquivos HTML, CSS e JS:</p>
+        <pre><code>mkdir public && cd public</code></pre>
+        <p>Crie o arquivo <code>index.html</code>:</p>
+        <pre><code>nano index.html</code></pre>
+        <p>Adicione o conteúdo HTML (este arquivo que você está visualizando).</p>
+        <p>Salve e saia do nano (CTRL + X, Y, Enter).</p>
+
+        <h2>Passo 9: Iniciar o servidor</h2>
+        <p>Volte para a pasta do projeto:</p>
+        <pre><code>cd ..</code></pre>
+        <p>Execute o servidor:</p>
+        <pre><code>node server.js</code></pre>
+        <p>Se tudo estiver certo, você verá a mensagem:</p>
+        <pre><code>Servidor rodando em http://localhost:3000</code></pre>
+        <p>Agora, abra o navegador no Android e acesse:</p>
+        <pre><code>http://127.0.0.1:3000</code></pre>
+        <p>Se quiser acessar de outro dispositivo na mesma rede Wi-Fi, pegue o IP do celular:</p>
+        <pre><code>ifconfig</code></pre>
+        <p>E acesse pelo navegador em outro dispositivo via:</p>
+        <pre><code>http://SEU_IP:3000</code></pre>
+    </div>
+    <footer>
+        <p>&copy; 2023 - Transforme seu Android em um Servidor Web Local</p>
+    </footer>
+</body>
+</html>
