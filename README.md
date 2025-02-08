@@ -29,7 +29,6 @@ Crie um arquivo chamado server.js:
 
 Passo 6: Copie e cole o script no arquivo server.js
 Cole este código básico para servir arquivos estáticos:
-- const express = require('express');
 const app = express();
 const port = 3000; // Pode alterar se necessário
 
